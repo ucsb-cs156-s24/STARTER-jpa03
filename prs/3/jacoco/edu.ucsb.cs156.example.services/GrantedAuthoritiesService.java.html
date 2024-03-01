@@ -10,16 +10,26 @@ import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
 
-<span class="fc" id="L13">@Slf4j</span>
+/**
+ * The is a service that retrieves and logs the granted authorities for the
+ * current user's authentication.
+ */
+<span class="fc" id="L17">@Slf4j</span>
 @Service(&quot;grantedAuthorities&quot;)
-<span class="fc" id="L15">public class GrantedAuthoritiesService {</span>
+<span class="fc" id="L19">public class GrantedAuthoritiesService {</span>
 
+    /**
+     * The function retrieves and logs the granted authorities from the current security context in a
+     * Java application.
+     * 
+     * @return collection of authorities granted to the currently authenticated user.
+     */
     public Collection&lt;? extends GrantedAuthority&gt; getGrantedAuthorities() {
-<span class="fc" id="L18">        SecurityContext securityContext = SecurityContextHolder.getContext();</span>
-<span class="fc" id="L19">        Authentication authentication = securityContext.getAuthentication();</span>
-<span class="fc" id="L20">        Collection&lt;? extends GrantedAuthority&gt; authorities = authentication.getAuthorities();</span>
-<span class="fc" id="L21">        log.info(&quot;authorities={}&quot;, authorities);</span>
-<span class="fc" id="L22">        return authorities;</span>
+<span class="fc" id="L28">        SecurityContext securityContext = SecurityContextHolder.getContext();</span>
+<span class="fc" id="L29">        Authentication authentication = securityContext.getAuthentication();</span>
+<span class="fc" id="L30">        Collection&lt;? extends GrantedAuthority&gt; authorities = authentication.getAuthorities();</span>
+<span class="fc" id="L31">        log.info(&quot;authorities={}&quot;, authorities);</span>
+<span class="fc" id="L32">        return authorities;</span>
     }
 
 }
