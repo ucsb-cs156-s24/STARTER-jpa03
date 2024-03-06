@@ -15,21 +15,11 @@ import org.springframework.stereotype.Service;
 @ConfigurationProperties
 <span class="fc" id="L16">public class SystemInfoServiceImpl extends SystemInfoService {</span>
   
-  /**
-   * This method returns a boolean based on the value 'spring.h2.console.enabled' in the application properties
-   * for whether or not to display the link to the h2 console.
-   * 
-   * @return boolean
-   */ 
+
   @Value(&quot;${spring.h2.console.enabled:false}&quot;)
   private boolean springH2ConsoleEnabled;
 
-  /**
-   * This method returns a boolean based on the value 'app.showSwaggerUILink' in the application properties
-   * for whether or not to display the link to swagger-ui. 
-   * 
-   * @return boolean
-   */ 
+
   @Value(&quot;${app.showSwaggerUILink:false}&quot;)
   private boolean showSwaggerUILink;
 
@@ -39,12 +29,12 @@ import org.springframework.stereotype.Service;
    * @return the system information
    */
   public SystemInfo getSystemInfo() {
-<span class="fc" id="L42">    SystemInfo si = SystemInfo.builder()</span>
-<span class="fc" id="L43">    .springH2ConsoleEnabled(this.springH2ConsoleEnabled)</span>
-<span class="fc" id="L44">    .showSwaggerUILink(this.showSwaggerUILink)</span>
-<span class="fc" id="L45">    .build();</span>
-<span class="fc" id="L46">  log.info(&quot;getSystemInfo returns {}&quot;,si);</span>
-<span class="fc" id="L47">  return si;</span>
+<span class="fc" id="L32">    SystemInfo si = SystemInfo.builder()</span>
+<span class="fc" id="L33">    .springH2ConsoleEnabled(this.springH2ConsoleEnabled)</span>
+<span class="fc" id="L34">    .showSwaggerUILink(this.showSwaggerUILink)</span>
+<span class="fc" id="L35">    .build();</span>
+<span class="fc" id="L36">  log.info(&quot;getSystemInfo returns {}&quot;,si);</span>
+<span class="fc" id="L37">  return si;</span>
   }
 
 }
