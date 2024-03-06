@@ -79,7 +79,7 @@ import java.util.Optional;
      * 
      * @param id the id of the date
      * @return a UCSBDate
-     * @throws JsonProcessingException
+     * @throws JsonProcessingException if there is an error processing the JSON
      */
     @Operation(summary = &quot;Get a single date&quot;)
     @PreAuthorize(&quot;hasRole('ROLE_USER')&quot;)
@@ -104,7 +104,7 @@ import java.util.Optional;
      * @param name          the name of the date
      * @param localDateTime the date
      * @return a ResponseEntity with the new date
-     * @throws JsonProcessingException
+     * @throws JsonProcessingException if there is an error processing the JSON
      */
     @Operation(summary = &quot;Create a new date&quot;)
     @PreAuthorize(&quot;hasRole('ROLE_ADMIN')&quot;)
@@ -152,54 +152,63 @@ import java.util.Optional;
 <span class="fc" id="L152">        return ResponseEntity.ok().body(String.format(&quot;UCSBDate with id %d deleted&quot;, id));</span>
     }
 
+    /**
+     * Update a single date
+     * 
+     * @param id       id of the date to update
+     * @param incoming the new date
+     * @return response entity with the updated date
+     * @throws JsonProcessingException
+     */
     @Operation(summary = &quot;Update a single date&quot;)
     @PreAuthorize(&quot;hasRole('ROLE_ADMIN')&quot;)
     @PutMapping(&quot;&quot;)
     public ResponseEntity&lt;String&gt; updateUCSBDate(
             @Parameter(name = &quot;id&quot;) @RequestParam Long id,
             @RequestBody @Valid UCSBDate incoming) throws JsonProcessingException {
-<span class="fc" id="L161">        UCSBDateOrError uoe = new UCSBDateOrError(id);</span>
+<span class="fc" id="L169">        UCSBDateOrError uoe = new UCSBDateOrError(id);</span>
 
-<span class="fc" id="L163">        uoe = doesUCSBDateExist(uoe);</span>
-<span class="fc bfc" id="L164" title="All 2 branches covered.">        if (uoe.error != null) {</span>
-<span class="fc" id="L165">            return uoe.error;</span>
+<span class="fc" id="L171">        uoe = doesUCSBDateExist(uoe);</span>
+<span class="fc bfc" id="L172" title="All 2 branches covered.">        if (uoe.error != null) {</span>
+<span class="fc" id="L173">            return uoe.error;</span>
         }
 
-<span class="fc" id="L168">        UCSBDate oldDate = uoe.ucsbDate;</span>
-<span class="fc" id="L169">        oldDate.setQuarterYYYYQ(incoming.getQuarterYYYYQ());</span>
-<span class="fc" id="L170">        oldDate.setName(incoming.getName());</span>
-<span class="fc" id="L171">        oldDate.setLocalDateTime(incoming.getLocalDateTime());</span>
+<span class="fc" id="L176">        UCSBDate oldDate = uoe.ucsbDate;</span>
+<span class="fc" id="L177">        oldDate.setQuarterYYYYQ(incoming.getQuarterYYYYQ());</span>
+<span class="fc" id="L178">        oldDate.setName(incoming.getName());</span>
+<span class="fc" id="L179">        oldDate.setLocalDateTime(incoming.getLocalDateTime());</span>
 
-<span class="fc" id="L173">        ucsbDateRepository.save(oldDate);</span>
+<span class="fc" id="L181">        ucsbDateRepository.save(oldDate);</span>
 
-<span class="fc" id="L175">        String body = mapper.writeValueAsString(oldDate);</span>
-<span class="fc" id="L176">        return ResponseEntity.ok().body(body);</span>
+<span class="fc" id="L183">        String body = mapper.writeValueAsString(oldDate);</span>
+<span class="fc" id="L184">        return ResponseEntity.ok().body(body);</span>
     }
 
     /**
-     * Pre-conditions: uoe.id is value to look up, uoe.ucsbDate and uoe.error are
-     * null
+     * Pre-conditions: uoe.id is value to look up, 
+     * uoe.ucsbDate and uoe.error are null
      *
      * Post-condition: if UCSBDate with id uoe.id exists, uoe.ucsbDate now refers to
-     * it, and
-     * error is null.
+     * it, and error is null.
+     * 
      * Otherwise, UCSBDate with id uoe.id does not exist, and error is a suitable
-     * return
-     * value to
-     * report this error condition.
+     * return value to report this error condition.
+     * 
+     * @param uoe the UCSBDateOrError object
+     * @return the UCSBDateOrError object
      */
     public UCSBDateOrError doesUCSBDateExist(UCSBDateOrError uoe) {
 
-<span class="fc" id="L193">        Optional&lt;UCSBDate&gt; optionalUCSBDate = ucsbDateRepository.findById(uoe.id);</span>
+<span class="fc" id="L202">        Optional&lt;UCSBDate&gt; optionalUCSBDate = ucsbDateRepository.findById(uoe.id);</span>
 
-<span class="fc bfc" id="L195" title="All 2 branches covered.">        if (optionalUCSBDate.isEmpty()) {</span>
-<span class="fc" id="L196">            uoe.error = ResponseEntity</span>
-<span class="fc" id="L197">                    .badRequest()</span>
-<span class="fc" id="L198">                    .body(String.format(&quot;UCSBDate with id %d not found&quot;, uoe.id));</span>
+<span class="fc bfc" id="L204" title="All 2 branches covered.">        if (optionalUCSBDate.isEmpty()) {</span>
+<span class="fc" id="L205">            uoe.error = ResponseEntity</span>
+<span class="fc" id="L206">                    .badRequest()</span>
+<span class="fc" id="L207">                    .body(String.format(&quot;UCSBDate with id %d not found&quot;, uoe.id));</span>
         } else {
-<span class="fc" id="L200">            uoe.ucsbDate = optionalUCSBDate.get();</span>
+<span class="fc" id="L209">            uoe.ucsbDate = optionalUCSBDate.get();</span>
         }
-<span class="fc" id="L202">        return uoe;</span>
+<span class="fc" id="L211">        return uoe;</span>
     }
 
 }

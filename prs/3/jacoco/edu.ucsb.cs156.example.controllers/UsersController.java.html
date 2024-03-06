@@ -34,7 +34,7 @@ import io.swagger.v3.oas.annotations.Operation;
     /**
      * This method returns a list of all users.  Accessible only to users with the role &quot;ROLE_ADMIN&quot;.
      * @return a list of all users
-     * @throws JsonProcessingException
+     * @throws JsonProcessingException if there is an error processing the JSON
      */
     @Operation(summary = &quot;Get a list of all users&quot;)
     @PreAuthorize(&quot;hasRole('ROLE_ADMIN')&quot;)

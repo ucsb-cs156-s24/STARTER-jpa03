@@ -64,7 +64,7 @@ import javax.validation.Valid;
 
     /**
      * This method returns a single todo owned by the current user.
-     * @param id
+     * @param id id of the todo to get
      * @return a single todo owned by the current user
      */
     @Operation(summary = &quot;Get a single todo (if it belongs to current user)&quot;)
@@ -81,7 +81,7 @@ import javax.validation.Valid;
 
     /**
      * This method returns a single todo regardless of ownership.  Accessible only to users with the role &quot;ROLE_ADMIN&quot;.
-     * @param id
+     * @param id id of the todo to get
      * @return a single todo regardless of ownership
      */
     @Operation(summary = &quot;Get a single todo (no matter who it belongs to, admin only)&quot;)
@@ -97,9 +97,9 @@ import javax.validation.Valid;
 
     /**
      * This method creates a new todo owned by the current user.
-     * @param title 
-     * @param details
-     * @param done
+     * @param title title of the todo
+     * @param details details of the todo
+     * @param done whether the todo has been done or not
      * @return the saved todo (with it's id field set by the database)
      */
     @Operation(summary = &quot;Create a new Todo&quot;)
@@ -123,7 +123,7 @@ import javax.validation.Valid;
 
     /**
      * Delete a Todo owned by this user
-     * @param id
+     * @param id id of the todo to delete
      * @return a message indicating the todo was deleted
      */
     @Operation(summary = &quot;Delete a Todo owned by this user&quot;)
