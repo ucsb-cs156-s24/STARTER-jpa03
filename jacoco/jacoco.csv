@@ -3,6 +3,7 @@ example,edu.ucsb.cs156.example.services,CurrentUserService,0,10,0,2,0,2,0,3,0,2
 example,edu.ucsb.cs156.example.services,GrantedAuthoritiesService,0,21,0,0,0,7,0,3,0,3
 example,edu.ucsb.cs156.example.services,SystemInfoService,0,3,0,0,0,1,0,1,0,1
 example,edu.ucsb.cs156.example.services,SystemInfoServiceImpl,0,24,0,0,0,8,0,3,0,3
+example,edu.ucsb.cs156.example.helpers,StringSource,0,5,0,0,0,2,0,2,0,2
 example,edu.ucsb.cs156.example.controllers,UserInfoController,0,6,0,0,0,2,0,2,0,2
 example,edu.ucsb.cs156.example.controllers,ApiController,0,24,0,0,0,7,0,5,0,5
 example,edu.ucsb.cs156.example.controllers,UCSBDatesController.UCSBDateOrError,0,6,0,0,0,3,0,1,0,1
