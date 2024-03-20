@@ -38,10 +38,9 @@ import org.springframework.web.bind.annotation.RestController;
      */
 
     @Operation(summary = &quot;Get global information about the application&quot;)
-    @PreAuthorize(&quot;hasRole('ROLE_ADMIN')&quot;)
     @GetMapping(&quot;&quot;)
     public SystemInfo getSystemInfo() {
-<span class="fc" id="L44">        return systemInfoService.getSystemInfo();</span>
+<span class="fc" id="L43">        return systemInfoService.getSystemInfo();</span>
     }
 
 }

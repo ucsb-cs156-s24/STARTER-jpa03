@@ -24,9 +24,11 @@ import org.springframework.stereotype.Service;
   @Value(&quot;${spring.h2.console.enabled:false}&quot;)
   private boolean springH2ConsoleEnabled;
 
-
   @Value(&quot;${app.showSwaggerUILink:false}&quot;)
   private boolean showSwaggerUILink;
+
+  @Value(&quot;${app.oauth.login:/oauth2/authorization/google}&quot;)
+  private String oauthLogin;
 
   /**
    * This method returns the system information.
@@ -34,12 +36,13 @@ import org.springframework.stereotype.Service;
    * @return the system information
    */
   public SystemInfo getSystemInfo() {
-<span class="fc" id="L37">    SystemInfo si = SystemInfo.builder()</span>
-<span class="fc" id="L38">    .springH2ConsoleEnabled(this.springH2ConsoleEnabled)</span>
-<span class="fc" id="L39">    .showSwaggerUILink(this.showSwaggerUILink)</span>
-<span class="fc" id="L40">    .build();</span>
-<span class="fc" id="L41">  log.info(&quot;getSystemInfo returns {}&quot;,si);</span>
-<span class="fc" id="L42">  return si;</span>
+<span class="fc" id="L39">    SystemInfo si = SystemInfo.builder()</span>
+<span class="fc" id="L40">    .springH2ConsoleEnabled(this.springH2ConsoleEnabled)</span>
+<span class="fc" id="L41">    .showSwaggerUILink(this.showSwaggerUILink)</span>
+<span class="fc" id="L42">    .oauthLogin(this.oauthLogin)</span>
+<span class="fc" id="L43">    .build();</span>
+<span class="fc" id="L44">  log.info(&quot;getSystemInfo returns {}&quot;,si);</span>
+<span class="fc" id="L45">  return si;</span>
   }
 
 }
