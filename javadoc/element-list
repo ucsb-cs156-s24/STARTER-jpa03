@@ -8,3 +8,4 @@ edu.ucsb.cs156.example.helpers
 edu.ucsb.cs156.example.models
 edu.ucsb.cs156.example.repositories
 edu.ucsb.cs156.example.services
+edu.ucsb.cs156.example.services.wiremock
