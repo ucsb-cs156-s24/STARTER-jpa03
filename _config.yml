@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-s24/STARTER-jpa03
 owner: ucsb-cs156-s24
 repo_name: STARTER-jpa03
-pull_requests: []
+pull_requests: [{"author":{"id":"MDQ6VXNlcjU2MDk2NzQ0","is_bot":false,"login":"andrewpengucsb","name":""},"headRefName":"pcAp-wiremock","number":8,"title":"ap - add integration profile and wiremock/playwright integration test","url":"https://github.com/ucsb-cs156-s24/STARTER-jpa03/pull/8"}]
