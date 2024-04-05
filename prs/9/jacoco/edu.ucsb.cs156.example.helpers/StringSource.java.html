@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StringSource.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">example</a> &gt; <a href="index.source.html" class="el_package">edu.ucsb.cs156.example.helpers</a> &gt; <span class="el_source">StringSource.java</span></div><h1>StringSource.java</h1><pre class="source lang-java linenums">package edu.ucsb.cs156.example.helpers;
+
+/**
+ * A helper class to provide hardcoded strings that can be used both in
+ * implementation
+ * and in tests
+ */
+
+<span class="fc" id="L9">public class StringSource {</span>
+  /**
+   * 
+   * @return a string with instructions on how to run the frontend server.
+   *          This is used in development on
+   *          localhost when the frontend server is not running.
+   */
+
+  public static String getDevelopmentDefaultLocalhostContent() {
+<span class="fc" id="L18">    return &quot;&quot;&quot;</span>
+        &lt;p&gt;Failed to connect to the frontend server...&lt;/p&gt;
+        &lt;p&gt;On Heroku or Dokku, be sure that &lt;code&gt;PRODUCTION&lt;/code&gt; is defined.&lt;/p&gt;
+        &lt;p&gt;On localhost, open a second terminal window, cd into &lt;code&gt;frontend&lt;/code&gt; and type: &lt;code&gt;nvm use 16.20.0; npm install; npm start&lt;/code&gt;&lt;/p&gt;
+        &lt;p&gt;Or, you may click to access: &lt;/p&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;/swagger-ui/index.html&quot;&gt;/swagger-ui/index.html&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;/h2-console&quot;&gt;/h2-console&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;&quot;&quot;&quot;;
+  }
+
+  /**
+   * 
+   * @return a string with the contents of the application's home page
+   *          for use during integration tests. It is identical to the
+   *          production homepage.
+   */
+  public static String getIntegrationDefaultLocalhostContent() {
+<span class="fc" id="L36">    return &quot;&quot;&quot;</span>
+      &lt;noscript&gt;You need to enable JavaScript to run this app.&lt;/noscript&gt;&lt;div id=&quot;root&quot;&gt;&lt;div class=&quot;Toastify&quot;&gt;&lt;/div&gt;&lt;div class=&quot;d-flex flex-column min-vh-100&quot;&gt;&lt;nav data-testid=&quot;AppNavbar&quot; class=&quot;navbar navbar-expand-xl navbar-dark bg-dark sticky-top&quot;&gt;&lt;div class=&quot;container&quot;&gt;&lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;JPA03&lt;/a&gt;&lt;button type=&quot;button&quot; aria-label=&quot;Toggle navigation&quot; class=&quot;navbar-toggler collapsed&quot;&gt;&lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;&lt;/button&gt;&lt;div class=&quot;me-auto navbar-nav&quot;&gt;&lt;/div&gt;&lt;div class=&quot;justify-content-between navbar-collapse collapse&quot;&gt;&lt;div class=&quot;mr-auto navbar-nav&quot;&gt;&lt;/div&gt;&lt;div class=&quot;ml-auto navbar-nav&quot;&gt;&lt;a role=&quot;button&quot; tabindex=&quot;0&quot; href=&quot;/oauth2/authorization/google&quot; class=&quot;btn btn-primary&quot;&gt;Log In&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/nav&gt;&lt;div expand=&quot;xl&quot; class=&quot;pt-4 flex-grow-1 container&quot;&gt;&lt;div class=&quot;pt-2&quot;&gt;&lt;h1&gt;jpa03&lt;/h1&gt;&lt;p&gt;This is a webapp containing a bunch of different Spring Boot/React examples.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;footer class=&quot;bg-light pt-3 pt-md-4 pb-4 pb-md-5&quot;&gt;&lt;div class=&quot;container&quot;&gt;&lt;p&gt;This is a sample webapp using React with a Spring Boot backend.&lt;/p&gt;&lt;/div&gt;&lt;/footer&gt;&lt;/div&gt;&lt;/div&gt;&quot;&quot;&quot;;
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
