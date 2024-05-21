@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-s24/STARTER-jpa03
 owner: ucsb-cs156-s24
 repo_name: STARTER-jpa03
-pull_requests: [{"author":{"id":"MDQ6VXNlcjU2MDk2NzQ0","is_bot":false,"login":"andrewpengucsb","name":""},"headRefName":"ap-integration-update","number":12,"title":"Update end-to-end test suite with changes from team03","url":"https://github.com/ucsb-cs156-s24/STARTER-jpa03/pull/12"}]
+pull_requests: []
